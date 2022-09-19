@@ -1,3 +1,9 @@
+---
+title: Paper Note:语义学优化中文NLP任务
+date: 2022-09-16 10:10:56 +/-0800
+categories: [NLP,papers]
+tags: [nlp,语言学,论文笔记]     # TAG names should always be lowercase
+---
 # Paper Note:语义学优化中文NLP任务
 
 《LET: Linguistic Knowledge Enhanced Graph Transformer for Chinese Short Text Matching》  

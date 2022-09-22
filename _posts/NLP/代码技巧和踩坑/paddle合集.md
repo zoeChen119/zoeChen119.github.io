@@ -1,6 +1,5 @@
 ---
 title: Paddle写代码踩坑记录
-date: 2022-09-16 10:10:56 +/-0800
 categories: [NLP,代码技巧和踩坑]
 tags: [nlp,paddle,代码技巧和踩坑]     # TAG names should always be lowercase
 ---

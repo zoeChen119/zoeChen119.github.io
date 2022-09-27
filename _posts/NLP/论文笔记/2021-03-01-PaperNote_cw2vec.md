@@ -1,5 +1,5 @@
 ---
-title: Paper Note:语义学优化中文NLP任务
+title: Paper Note:在中文语义表征中引入笔划信息
 date: 2022-09-16 10:10:56 +/-0800
 categories: [NLP,论文笔记]
 tags: [nlp,语言学,论文笔记]     # TAG names should always be lowercase

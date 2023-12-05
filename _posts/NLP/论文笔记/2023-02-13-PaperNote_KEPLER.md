@@ -11,19 +11,19 @@ tags: [nlp,知识图谱,知识表征,预训练模型,论文笔记]     # TAG nam
 ### 1. 首图
 这是论文的首图，示范了给知识图谱中每个实体增加描述的效果。
 
-![](/assets/img/2023-02-13-PaperNote_KEPLER/2023-02-13-10-29-28.png)
+![](E:\Zoe\zoeChen119.github.io/assets/img/2023-02-13-PaperNote_KEPLER/2023-02-13-10-29-28.png)
 
 
 
 ### 2. （MODEL）图一
 
-![](/assets/img/2023-02-13-PaperNote_KEPLER/2023-02-13-11-34-14.png)
+![](E:\Zoe\zoeChen119.github.io/assets/img/2023-02-13-PaperNote_KEPLER/2023-02-13-11-34-14.png)
 
 #### 一句话概括
 KEPLER通过“*联合训练两个目标objectives*”来把事实知识**隐式融合**进语言表征中。
 
 #### 组件1：Encoder
-![](/assets/img/2023-02-13-PaperNote_KEPLER/2023-02-13-14-41-58.png)
+![](E:\Zoe\zoeChen119.github.io/assets/img/2023-02-13-PaperNote_KEPLER/2023-02-13-14-41-58.png)
 每个Token经过L层hiddenlayers的词表征：
 $$H_i∈ \Bbb{R}^{N×d},1≤i≤L$$
 
@@ -174,7 +174,7 @@ $${\bf h}_r=E_{<s>}(text_{h,r})$$
 
 
 ### 2.预训练实现
-![](/assets/img/2023-02-13-PaperNote_KEPLER/2023-02-13-16-52-36.png)
+![](E:\Zoe\zoeChen119.github.io/assets/img/2023-02-13-PaperNote_KEPLER/2023-02-13-16-52-36.png)
 
 
 ### 3.微调实现

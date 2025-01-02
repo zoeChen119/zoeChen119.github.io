@@ -22,7 +22,7 @@ Bitext 挖掘、分类、聚类、对分类、重新排序、检索、STS 和摘
 
 * **聚类**：给定一组句子或段落，目标是将它们分组到有意义的集群中。批量大小为 32 和 k 的小批量 k-means 模型等于不同标签的数量 (Pedregosa et al., 2011) 在嵌入文本上进行训练。该模型使用 **v-measure** 进行评分（Rosenberg 和 Hirschberg，2007）。Vmeasure 不依赖于集群标签，因此标签的排列不会影响分数。
 
-  ![image-20231117140828151](..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117140828151.png)
+  ![image-20231117140828151](..\..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117140828151.png)
 
   * RedditClustering：199个子版块的标题聚类。25个分段的聚类，每个分段有10-50个类，每个类有100-1000个句子
   * RedditClusteringP2P：使用Reddit帖子中的可用数据为MTEB创建数据集[^11]。该任务包括根据标题+帖子的subreddit进行聚类拼接。它包含10个拆分，每个拆分有10到100个集群和1,000到100,000个帖子。
@@ -32,7 +32,7 @@ Bitext 挖掘、分类、聚类、对分类、重新排序、检索、STS 和摘
 
 * **分类**： A 训练集和测试集嵌入了提供的模型。训练集嵌入用于训练具有 100 个最大迭代次数的逻辑回归分类器，该分类器在测试集上进行评分。主要指标是平均精度的**准确度**，另外提供了 f1。
 
-  ![image-20231117140804552](..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117140804552.png)
+  ![image-20231117140804552](..\..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117140804552.png)
 
   * AmazonCounterfactual：一组为反事实检测 **对分类?** 注释的亚马逊客户评论。对于每个评论，标签是“反事实”或“非反事实”。这是一个具有 4 种可用语言的多语言数据集。
   * AmazonPolarity：一组为极性分类注释的亚马逊客户评论。对于每个评论，标签要么是“正面”，要么是“负面”。
@@ -48,7 +48,7 @@ Bitext 挖掘、分类、聚类、对分类、重新排序、检索、STS 和摘
 
 * **对分类**：提供了一对文本输入，并且需要分配标签。标签通常是表示重复或释义对的二元变量。嵌入了这两个文本，它们的距离是通过各种指标计算的（余弦相似度、点积、欧几里得距离、曼哈顿距离）。使用最佳二进制阈值精度，计算平均精度 f1，精度和召回率。基于**余弦相似度的平均精度分数**是主要的指标。
 
-  ![image-20231117140915162](..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117140915162.png)
+  ![image-20231117140915162](..\..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117140915162.png)
 
   * SprintDuplicateQuestions：来自Sprint社区的问题集合。目标是将一对句子分类为重复或不重复。
   * TwitterSemEval2015：来自SemEval 2015研讨会的对推文的释义。目标是将一对推文分类为释义或非释义。
@@ -64,14 +64,14 @@ Bitext 挖掘、分类、聚类、对分类、重新排序、检索、STS 和摘
 
 * **Bitext 挖掘**：输入是来自两个**不同语言**的**两组句子**。对于第一组中的每个句子，需要找到第二组中的最佳匹配。匹配通常是翻译。提供的模型用于嵌入每个句子，最接近的对是通过余弦相似度找到的。**F1** 作为双文本挖掘的主要指标。还计算了准确性、精度和召回率。
 
-  ![image-20231117141058098](..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117141058098.png)
+  ![image-20231117141058098](..\..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117141058098.png)
 
   * BUCC：BUCC 为英语、法语、俄语、德语和中文提供了大量句子（每个约 10-70k），以及相关的对注释。这里的注释对对应于一对翻译的句子，即一个句子及其在另一种语言的翻译。
   * Tatoeba：Tatoeba 为 112 种语言提供了一组句子（每个句子 1000 个句子），其中包含带有注释的相关对。每对都是一个句子及其在另一种语言中的翻译。
 
 * **重新排序**：输入是查询和相关和不相关参考文本列表。目的是根据结果与查询的相关性对结果进行排名。该模型用于嵌入参考，然后使用余弦相似度与查询进行比较。每个查询对生成的排名进行评分，并在所有查询中取平均值。指标是平均 MRR@k 和 **MAP**，后者是主要指标。
 
-  ![image-20231117140947611](..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117140947611.png)
+  ![image-20231117140947611](..\..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117140947611.png)
 
   * AskUbuntuDupQuestions：来自 AskUbuntu 的问题，带有手动注释，将成对的问题标记为相似或不相似。
   * MindSmall：用于新闻推荐研究的大规模英语数据集。给定新闻文章标题对新闻文章标题进行排名。这个想法是从您正在阅读的新闻中推荐其他新闻。
@@ -86,7 +86,7 @@ Bitext 挖掘、分类、聚类、对分类、重新排序、检索、STS 和摘
 
 * **语义文本相似度 (STS)** ：给定一个句子对，目的是确定它们的相似度。标签是连续分数，数字更高，表明句子更相似。提供的模型用于嵌入句子，并使用各种距离度量计算它们的相似度。使用 Pearson 和 Spearman 相关性以基本事实相似性对距离进行基准测试。基于**余弦相似度的 Spearman** 相关性作为主要指标（Reimers 等人，2016 年）。分值为0-5之间的连续值。
 
-  ![image-20231117141002995](..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117141002995.png)
+  ![image-20231117141002995](..\..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117141002995.png)
 
   * STS12, STS13, STS14, STS15, STS16, STS17, STS22, STSBenchmark：原始STS基准，分数从0到5。选择的句子包括来自图片说明、新闻标题和用户论坛的文本。它们总共包含1,000到20,000个句子。STS12 - STS16 & STSBenchmark是单英语的，STS17和STS22包含跨语言的句子对，目的是评估不同语言中两个句子的相似度。STS17有11个语言对(韩语、阿拉伯语、英语、法语、德语、土耳其语、西班牙语、意大利语和荷兰语)，STS22有18个语言对(阿拉伯语、英语、法语、德语、土耳其语、西班牙语、波兰语、意大利语、俄语和汉语)。
   * BIOSSES：包含100个来自生物医学领域的句子对。
@@ -94,7 +94,7 @@ Bitext 挖掘、分类、聚类、对分类、重新排序、检索、STS 和摘
 
 * **摘要**：提供了一组人工编写的和机器生成的摘要。目的是对机器摘要进行评分。提供的模型首先用于嵌入所有摘要。对于每个机器摘要嵌入，计算所有人类摘要嵌入的距离。保留最接近的分数（例如最高余弦相似度），并用作模型对单个机器生成的摘要的分数。计算了 Pearson 和 Spearman 相关性与机器生成的摘要的基本事实人工评估。与 STS 一样，基于**余弦相似度的 Spearman** 相关性作为主要指标（Reimers 等人，2016 年）。
 
-  ![image-20231117141109979](..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117141109979.png)
+  ![image-20231117141109979](..\..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark\image-20231117141109979.png)
 
   * SummEval：由CNN或DailyMail上训练的最新摘要模型生成的摘要以及人工注释。
 
@@ -188,7 +188,7 @@ Paragraph to paragraph (P2P)：包括 聚类任务（构建为了S2S和P2P两个
 
 Sentence to paragraph (S2P)：包括 检索任务 这里的查询是一个句子，而文档是由多个句子组成的长段落。
 
-![img](..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark/340b117a45e38e27318ff1c4e6ad1adb_3_Figure_2_-237605191.png)
+![img](..\..\..\..\..\zoeChen119.github.io\assets\img\2023-12-08-调研MTEB Massive Text Embedding Benchmark/340b117a45e38e27318ff1c4e6ad1adb_3_Figure_2_-237605191.png)
 
 工作2：每个数据集取100个样本，用每个模型生成embedding，计算句表征之间的余弦相似度，作为数据集和数据集之间相似度的表征。
 
